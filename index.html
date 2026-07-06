@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Virtual Memory Visualization — Paging & Page Faults</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Virtual Memory Visualization</h1>
+    <p class="subtitle">Paging • Page Faults • FIFO / LRU</p>
+  </header>
+  <main class="container">
+    <section class="panel glass controls">
+      <h2>Controls</h2>
+      <div class="grid">
+        <label class="field">
+          <span>Frames</span>
+          <input type="number" id="framesInput" min="1" max="16" value="4">
+        </label>
+        <label class="field">
+          <span>Algorithm</span>
+          <select id="algoSelect">
+            <option value="FIFO">FIFO (First-In, First-Out)</option>
+            <option value="LRU">LRU (Least Recently Used)</option>
+          </select>
+        </label>
+      </div>
+      <label class="field full">
+        <span>Reference String</span>
+        <input type="text" id="refInput" placeholder="e.g. 7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2">
+      </label>
+      <div class="buttons">
+        <button id="loadBtn">Load Sequence</button>
+        <button id="stepBtn" disabled>Step ▶</button>
+        <button id="autoBtn" disabled>Auto Play ⏯</button>
+        <button id="resetBtn">Reset ⟲</button>
+      </div>
+    </section>
+    <section class="panel glass visuals">
+      <h2>Frames</h2>
+      <div id="framesView" class="frames"></div>
+      <h2>Timeline</h2>
+      <div id="timeline" class="timeline"></div>
+    </section>
+    <section class="panel glass log">
+      <h2>Log</h2>
+      <div id="log" class="log-area"></div>
+    </section>
+  </main>
+  <footer class="footer">
+    <span>Made for College Project</span>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
